@@ -1,7 +1,7 @@
 <template>
   <q-page padding class="row justify-center items-center q-gutter-lg">
     <q-btn :loading="loading" color="green" label="SUCCESS ORDER" size="30px" unelevated @click="createOrder(SUCCESS_ORDER)" />
-    <q-btn :loading="loading" color="red" label="FAILED ORDER" size="30px" unelevated @click="createOrder(FAILED_ORDER)" />
+    <q-btn :loading="loading" color="orange" label="CANCELED ORDER" size="30px" unelevated @click="createOrder(FAILED_ORDER)" />
   </q-page>
 </template>
 

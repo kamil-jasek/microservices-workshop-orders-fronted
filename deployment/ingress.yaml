@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: orders-frontend-ingress
+  namespace: microservices-workshop
+  annotations:
+    nginx.ingress.kubernetes.io/service-upstream: "true"
+    linkerd.io/inject: ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: orders-frontend
+                port:
+                  number: 80

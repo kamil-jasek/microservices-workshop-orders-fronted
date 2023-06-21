@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders-frontend-canary
+  labels:
+    app: orders-frontend
+  namespace: microservices-workshop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orders-frontend
+  template:
+    metadata:
+      labels:
+        app: orders-frontend
+      annotations:
+        linkerd.io/inject: enabled
+    spec:
+      serviceAccountName: orders-frontend
+      containers:
+        - name: orders-frontend
+          imagePullPolicy: Always
+          image: localhost:5000/orders-frontend:{{version}}
+          ports:
+            - containerPort: 80
