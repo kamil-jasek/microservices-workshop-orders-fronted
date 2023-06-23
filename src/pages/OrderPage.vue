@@ -43,6 +43,13 @@
             </div>
           </div>
           <q-separator color="amber-6" class="q-mt-md q-mb-md" />
+          <div class="row">
+            <div class="col-3 text-left" style="font-size: 16px">Shipment ID</div>
+            <div class="col-9 text-left q-pl-md" style="font-size: 16px">
+              {{`${order.shipmentId}`.slice(0, 8)}}
+            </div>
+          </div>
+          <q-separator color="amber-6" class="q-mt-md q-mb-md" />
         </template>
 
         <template v-if="order.cancelTime">
